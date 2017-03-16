@@ -12,19 +12,18 @@ var caculator = require("../lib/caculator.js");
 describe("Caculating Word Componet Test", function(){
     sinon.spy(console, 'log');
 
-    // it("should return 'hello 1' given 'hello' ", function(){
-    //   // given
-    //   var txt = "hello"
-    //
-    //   //when
-    //   var result = caculator(txt);
-    //
-    //   //then
-    //   var expectResult = {};
-    //   expectResult['hello']=1;
-    //   console.log(expectResult);
-    //   expect(result).to.deep.equal(expectResult);
-    // });
+    it("should return 'hello 1' given 'hello' ", function(){
+      // given
+      var txt = ['hello']
+      //when
+      var result = caculator.wordCount(txt);
+
+      //then
+      var expectResult = [
+        {name:'hello',count:1}
+    ]
+      expect(result).to.deep.equal(expectResult);
+    });
 
     it("should return 'hello 4 test 3' given 'hello hello hello hello test test test' ", function(){
       // given
@@ -47,9 +46,7 @@ describe("Caculating Word Componet Test", function(){
           {name:'hello',count:4},
       ];
       //when
-      var result = txt.sort(caculator.getSequece('count'));
-      console.log(result);
-      //then
+      var result = txt.sort(caculator.getSequece('count'));      //then
       var expectResult = [
           {name:'hello',count:4},
           {name:'test',count:3},
