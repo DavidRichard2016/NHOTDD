@@ -40,19 +40,22 @@ describe("Caculating Word Componet Test", function(){
       expect(result).to.deep.equal(expectResult);
     });
 
-    // it("should return 'hello 4 test 3' given 'hello hello hello hello test test test' ", function(){
-    //   // given
-    //   var txt = {
-    //     {test}
-    //   }
-    //
-    //   //when
-    //   var result = caculator(txt);
-    //
-    //   //then
-    //   var expectResult = { name : "hello" ,count : }
-    //   expect(result).to.deep.equal(expectResult);
-    // });
+    it("should return 'hello 4 test 3' given 'test 3 hello 4' ", function(){
+      // given
+      var txt = [
+          {name:'test',count:3},
+          {name:'hello',count:4},
+      ];
+      //when
+      var result = txt.sort(caculator.getSequece('count'));
+      console.log(result);
+      //then
+      var expectResult = [
+          {name:'hello',count:4},
+          {name:'test',count:3},
+      ];
+      expect(result).to.deep.equal(expectResult);
+    });
 
 
 });
