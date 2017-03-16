@@ -20,8 +20,8 @@ describe("Caculating Word Componet Test", function(){
       var result = caculator(txt);
 
       //then
-      var word = ['hello',1];
-      var expectResult = new Array(word);
+      var expectResult = {};
+      expectResult['hello']=1;
       console.log(expectResult);
       expect(result).to.deep.equal(expectResult);
     });
