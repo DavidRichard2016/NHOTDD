@@ -12,6 +12,28 @@ var caculator = require("../lib/caculator.js");
 describe("Caculating Word Componet Test", function(){
     sinon.spy(console, 'log');
 
+    it("should return '['hello','hello']' given 'hello  hello' ", function(){
+      // given
+      var txt = 'hello   hello'
+      //when
+      var result = caculator.datatransform(txt);
+
+      //then
+      var expectResult = ['hello','hello'];
+      expect(result).to.deep.equal(expectResult);
+    });
+
+    it("should return ['hello','hello'] given 'hello   hello' ", function(){
+      // given
+      var txt = 'hello hello'
+      //when
+      var result = caculator.datatransform(txt);
+
+      //then
+      var expectResult = ['hello','hello'];
+      expect(result).to.deep.equal(expectResult);
+    });
+
     it("should return 'hello 1' given 'hello' ", function(){
       // given
       var txt = ['hello']
